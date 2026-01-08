@@ -6,7 +6,7 @@ This application allows users to search for any city globally and retrieves real
 
 🔗 **[Live Demo] (https://weather-app-seven-eosin-79.vercel.app/)**
 
-![App Screenshot](screenshot.png)
+![App Screenshot]
 <img width="1869" height="892" alt="image" src="https://github.com/user-attachments/assets/fee6b8e9-f411-4098-883b-70b5ba4c9208" />
 
 ## 🚀 Key Features
