@@ -1,16 +1,55 @@
-# React + Vite
+# 🌦️ Minimalist Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive weather dashboard built with **React** and **Tailwind CSS**. 
 
-Currently, two official plugins are available:
+This application allows users to search for any city globally and retrieves real-time weather data by chaining multiple APIs (Geocoding + Weather Forecasting) without requiring an API key.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **[Live Demo] (https://weather-app-seven-eosin-79.vercel.app/)**
 
-## React Compiler
+![App Screenshot](screenshot.png)
+<img width="1869" height="892" alt="image" src="https://github.com/user-attachments/assets/fee6b8e9-f411-4098-883b-70b5ba4c9208" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Key Features
 
-## Expanding the ESLint configuration
+* **Real-Time Data:** Fetches current temperature, wind speed, and weather conditions.
+* **Smart Search:** Accepts city names, converts them to geographic coordinates, and then fetches weather data.
+* **Dynamic UI:** Background and icons change based on the weather state (e.g., ☀️ for clear sky, 🌧️ for rain).
+* **Robust Error Handling:** graceful error messages for invalid cities or network issues.
+* **Responsive Design:** Fully mobile-optimized using Tailwind CSS.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+* **Frontend:** React.js (Vite)
+* **Styling:** Tailwind CSS (Glassmorphism & Dark Mode aesthetics)
+* **API:** [Open-Meteo](https://open-meteo.com/) (Free, No Key required)
+* **Deployment:** Vercel
+
+## 🧠 Technical Highlights (How it Works)
+
+The core challenge of this project was handling the asynchronous data flow. Since the weather API requires latitude/longitude but users search by "City Name," I implemented a **chained API request**:
+
+1.  **Geocoding Step:** The app first hits the Geocoding API to resolve the city name (e.g., "London") into coordinates (`51.50`, `-0.12`).
+2.  **Weather Fetching Step:** Once the coordinates are resolved, a second `await` call fetches the specific weather data for that location.
+3.  **State Management:** I used `useState` to manage the complex transition states: `loading` (spinner), `error` (bad input), and `success` (data display).
+
+## 💻 Getting Started
+
+To run this project locally:
+
+1.  **Clone the repo**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/weather-app.git](https://github.com/YOUR_USERNAME/weather-app.git)
+    ```
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+3.  **Run the server**
+    ```bash
+    npm run dev
+    ```
+
+## 🔮 Future Improvements
+* Add a 7-day forecast using list mapping.
+* Implement a "Use My Location" button using the browser's Geolocation API.
+* Dark/Light mode toggle.
